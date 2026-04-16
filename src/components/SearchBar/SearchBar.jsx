@@ -1,15 +1,29 @@
+import { useState } from "react";
 import "./SearchBar.css";
 import bgImage from "../../assets/icons/bg.jpg"; 
 
-const SearchBar = () => {
+const SearchBar = ({ onSearch }) => {
+  const [city, setCity] = useState("");
 
-// Отримуємо актуальну дату
+  // дата
   const now = new Date();
-//   const options = { year: 'numeric', month: 'long' };
-//   const dateOptions = { weekday: 'long', day: 'numeric' };
-  
-  const monthYear = now.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
-  const weekdayDay = now.toLocaleDateString('en-US', { weekday: 'long', day: 'numeric' });
+
+  const monthYear = now.toLocaleDateString('en-US', { 
+    month: 'long', 
+    year: 'numeric' 
+  });
+
+  const weekdayDay = now.toLocaleDateString('en-US', { 
+    weekday: 'long', 
+    day: 'numeric' 
+  });
+
+  // 🔥 функція пошуку
+  const handleSearch = () => {
+    if (city.trim() !== "") {
+      onSearch(city);
+    }
+  };
 
   return (
     <div 
@@ -20,20 +34,29 @@ const SearchBar = () => {
 
       <div className="search__content">
         <h1>Weather dashboard</h1>
+
         <div className="search__content_inside">
-            <p>Create your personal list of favorite cities and always be aware of the weather.</p>
-         
-         <div className="data__day">
-          <div className="date__month-year">{monthYear}</div>
-          <div className="date__weekday-day">{weekdayDay}</div>
-        
+          <p>
+            Create your personal list of favorite cities and always be aware of the weather.
+          </p>
+
+          <div className="data__day">
+            <div className="date__month-year">{monthYear}</div>
+            <div className="date__weekday-day">{weekdayDay}</div>
+          </div>
         </div>
-        </div>
-        
 
         <div className="search__box">
-          <input type="text" placeholder="Search city..." />
-          <button>Search</button>
+          <input
+            type="text"
+            placeholder="Search city..."
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+          />
+
+          <button onClick={handleSearch}>
+            Search
+          </button>
         </div>
       </div>
     </div>
