@@ -7,7 +7,7 @@ import NatureSlider from "../components/NatureSlider/NatureSlider";
 import Footer from "../components/Footer/Footer";
 
 
-function Home() {
+function SignupPage() {
   const [city, setCity] = useState("");
 
   const handleSearch = (cityName) => {
@@ -26,4 +26,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default SignupPage;

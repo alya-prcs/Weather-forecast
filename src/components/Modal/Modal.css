@@ -1,0 +1,83 @@
+/* затемнення фону */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 1000;
+}
+
+/* саме модальне вікно */
+.modal {
+  background: #f3f3f3;
+  padding: 40px;
+  border-radius: 25px;
+  width: 400px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  animation: fadeIn 0.3s ease;
+}
+
+/* заголовок */
+.modal h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* інпути */
+.modal input {
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  background: #ddd;
+  outline: none;
+}
+
+/* кнопка */
+.signup-btn {
+  margin-top: 10px;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  background: #7dc7f9;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.signup-btn:hover {
+  background: #7dc7f9;
+}
+
+/* текст знизу */
+.login-text {
+  text-align: center;
+  font-size: 14px;
+}
+
+.login-text span {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* анімація появи */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

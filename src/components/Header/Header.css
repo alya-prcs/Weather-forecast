@@ -56,3 +56,12 @@
   height: 56px; 
  
 }
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.user-info span {
+  font-weight: 500;
+}
