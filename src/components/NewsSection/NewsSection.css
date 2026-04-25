@@ -44,3 +44,41 @@
   border-radius: 10px;
   cursor: pointer;
 }
+
+
+
+/* ✅ Адаптив */
+@media (max-width: 1200px) {
+  .news-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 в ряд */
+  }
+}
+
+@media (max-width: 768px) {
+  .news-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 в ряд */
+  }
+
+  .news-card img {
+    height: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .news-grid {
+    grid-template-columns: 1fr; /* 1 в ряд */
+  }
+
+  .news-card img {
+    height: 120px;
+  }
+
+  .news-card p {
+    font-size: 13px;
+  }
+
+  .see-more {
+    width: 100%; /* кнопка на всю ширину */
+    font-size: 14px;
+  }
+}

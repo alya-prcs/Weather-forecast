@@ -119,3 +119,81 @@
   margin-top: 10px;
   font-size: 14px;
 }
+
+
+/* ✅ Адаптив */
+@media (max-width: 992px) {
+  .search {
+    height: 500px;
+  }
+
+  .search__content h1 {
+    font-size: 30px;
+  }
+
+  .date__weekday-day {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .search {
+    height: auto;
+    padding: 40px 20px;
+  }
+
+  .search__content {
+    max-width: 100%;
+  }
+
+  .search__content h1 {
+    font-size: 26px;
+  }
+
+  .search__content_inside {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .search__content_inside::before {
+    display: none; /* прибираємо вертикальну лінію */
+  }
+
+  .search__content_inside p {
+    width: 100%;
+    text-align: center;
+  }
+
+  .data__day {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .search__content h1 {
+    font-size: 22px;
+  }
+
+  .search__content p {
+    font-size: 12px;
+  }
+
+  .search__box input {
+    width: 180px;
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+
+  .search__box button {
+    padding: 8px 14px;
+    font-size: 0.9rem;
+  }
+
+  .date__month-year {
+    font-size: 16px;
+  }
+
+  .date__weekday-day {
+    font-size: 20px;
+  }
+}

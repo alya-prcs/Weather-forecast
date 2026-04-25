@@ -103,3 +103,60 @@
 .see-moreSignup:hover {
   opacity: 0.8;
 }
+
+/* ✅ Адаптив */
+@media (max-width: 992px) {
+  .cardSignup {
+    width: 220px;
+    padding: 15px;
+  }
+
+  .sunSignup-icon {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .weather-sectionSignup {
+    flex-direction: column; /* картки стають вертикально */
+    align-items: center;
+    min-height: auto;
+  }
+
+  .cardSignup {
+    width: 80%; /* картка займає більшу частину ширини */
+    max-width: 320px;
+  }
+
+  .cardSignup__btn {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardSignup {
+    width: 95%;
+    padding: 12px;
+  }
+
+  .cardSignup__top {
+    font-size: 11px;
+  }
+
+  .sunSignup-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .iconSignup {
+    width: 20px;
+    height: 20px;
+  }
+
+  .see-moreSignup {
+    padding: 5px 10px;
+    font-size: 0.85rem;
+  }
+}

@@ -38,3 +38,39 @@
 .swiper-pagination {
   display: none !important;
 }
+
+
+/* ✅ Адаптив */
+@media (max-width: 992px) {
+  .swiper-slide {
+    width: 250px;
+    height: 170px;
+  }
+}
+
+@media (max-width: 768px) {
+  .slider-section {
+    padding: 25px;
+  }
+
+  .swiper-slide {
+    width: 220px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slider-section {
+    padding: 15px;
+  }
+
+  .swiper-slide {
+    width: 180px;
+    height: 120px;
+  }
+
+  .slider-section h2 {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+}

@@ -81,3 +81,48 @@
     transform: scale(1);
   }
 }
+
+/* ✅ Адаптив */
+@media (max-width: 768px) {
+  .modal {
+    width: 90%;       /* майже вся ширина екрану */
+    padding: 25px;    /* менші відступи */
+    border-radius: 18px;
+  }
+
+  .modal input {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+
+  .signup-btn {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal {
+    width: 95%;       /* ще ширше на мобільних */
+    padding: 20px;
+    border-radius: 15px;
+  }
+
+  .modal h2 {
+    font-size: 1.2rem;
+  }
+
+  .modal input {
+    font-size: 0.85rem;
+    padding: 8px;
+  }
+
+  .signup-btn {
+    padding: 8px;
+    font-size: 0.85rem;
+  }
+
+  .login-text {
+    font-size: 12px;
+  }
+}

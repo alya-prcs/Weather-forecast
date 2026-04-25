@@ -11,7 +11,7 @@
 }
 
 .modal {
-  background: #fff;
+  background: #ffffff61;
   border-radius: 1.5rem;
   padding: 2rem;
   max-width: 900px;
@@ -126,7 +126,42 @@
   letter-spacing: 0.3px;
 }
 
-/* Responsive */
+//* ✅ Адаптив */
+@media (max-width: 992px) {
+  .weekly-forecast {
+    padding: 20px 16px;
+  }
+
+  .weekly-forecast h2 {
+    font-size: 1.3rem;
+  }
+
+  .forecast-table td {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .weekly-forecast {
+    padding: 18px 14px;
+  }
+
+  .weekly-forecast h2 {
+    font-size: 1.25rem;
+    text-align: center;
+  }
+
+  .forecast-table th,
+  .forecast-table td {
+    font-size: 0.8rem;
+    padding: 10px 6px;
+  }
+
+  .weather-icons {
+    font-size: 1rem;
+  }
+}
+
 @media (max-width: 550px) {
   .weekly-forecast {
     padding: 16px 12px;
@@ -147,5 +182,16 @@
   
   .weather-descriptions span {
     font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .forecast-table th,
+  .forecast-table td {
+    font-size: 0.75rem;
+  }
+
+  .weekly-forecast h2 {
+    font-size: 1.1rem;
   }
 }
