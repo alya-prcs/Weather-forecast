@@ -11,29 +11,37 @@ const WeatherList = ({ city }) => {
   if (!city) return;
 
   const fetchWeather = async () => {
-    const data = await getWeather(city);
+  const data = await getWeather(city);
 
-    if (!data || !data.list) return;
+  if (!data) {
+    alert("City not found ❌");
+    return;
+  }
 
-    const item = data.list[0];
+  if (!data.list) {
+    console.log("No weather data");
+    return;
+  }
 
-    const newCard = {
-      id: Date.now(),
-      city: data.city.name,
-      country: data.city.country,
-      ...item,
-    };
+  const item = data.list[0];
 
-    setCards((prev) => {
-      const exists = prev.find(
-        (c) => c.city.toLowerCase() === data.city.name.toLowerCase()
-      );
-
-      if (exists) return prev;
-
-      return [...prev, newCard];
-    });
+  const newCard = {
+    id: Date.now(),
+    city: data.city.name,
+    country: data.city.country,
+    ...item,
   };
+
+  setCards((prev) => {
+    const exists = prev.find(
+      (c) => c.city.toLowerCase() === data.city.name.toLowerCase()
+    );
+
+    if (exists) return prev;
+
+    return [...prev, newCard];
+  });
+};
 
   fetchWeather();
 }, [city]);

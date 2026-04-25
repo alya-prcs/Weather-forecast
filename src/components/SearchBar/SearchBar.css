@@ -114,3 +114,8 @@
   text-align: left;
 
 }
+.error-text {
+  color: #7dc7f9;
+  margin-top: 10px;
+  font-size: 14px;
+}

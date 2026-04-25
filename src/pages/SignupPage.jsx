@@ -1,11 +1,12 @@
 import { useState } from "react";
 
 import SearchBar from "../components/SearchBar/SearchBar";
-import WeatherList from "../components/WeatherList/WeatherList";
+import WeatherListSignup from "../components/WeatherListSignup/WeatherListSignup";
+
 import NewsSection from "../components/NewsSection/NewsSection";
 import NatureSlider from "../components/NatureSlider/NatureSlider";
 import Footer from "../components/Footer/Footer";
-
+import HourlyForecast from "../components/HourlyForecast/HourlyForecast";
 
 function SignupPage() {
   const [city, setCity] = useState("");
@@ -18,7 +19,8 @@ function SignupPage() {
     <>
 
       <SearchBar onSearch={handleSearch} />
-      <WeatherList city={city} />
+      <WeatherListSignup city={city} />
+  <HourlyForecast />
       <NewsSection/>
       <NatureSlider/>
       <Footer/>

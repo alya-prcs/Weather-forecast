@@ -4,29 +4,33 @@ import bgImage from "../../assets/icons/bg.jpg";
 
 const SearchBar = ({ onSearch }) => {
   const [city, setCity] = useState("");
+  const [error, setError] = useState("");
 
-  // дата
   const now = new Date();
 
-  const monthYear = now.toLocaleDateString('en-US', { 
-    month: 'long', 
-    year: 'numeric' 
+  const monthYear = now.toLocaleDateString("en-US", {
+    month: "long",
+    year: "numeric",
   });
 
-  const weekdayDay = now.toLocaleDateString('en-US', { 
-    weekday: 'long', 
-    day: 'numeric' 
+  const weekdayDay = now.toLocaleDateString("en-US", {
+    weekday: "long",
+    day: "numeric",
   });
 
-  // 🔥 функція пошуку
   const handleSearch = () => {
-    if (city.trim() !== "") {
-      onSearch(city);
+    if (city.trim() === "") {
+      setError("Enter city name");
+      return;
     }
+
+    setError(""); // очистити помилку
+    onSearch(city);
+    setCity(""); // очистити input
   };
 
   return (
-    <div 
+    <div
       className="search"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
@@ -58,6 +62,9 @@ const SearchBar = ({ onSearch }) => {
             Search
           </button>
         </div>
+
+        {/* 🔥 показ помилки */}
+        {error && <p className="error-text">{error}</p>}
       </div>
     </div>
   );

@@ -1,0 +1,105 @@
+.weather-sectionSignup {
+  width: 100%;
+  height: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  background: center/cover no-repeat;
+  gap: 20px;
+}
+
+/* CARD */
+.cardSignup {
+  width: 260px;
+  background: #eaeaea;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+/* TOP */
+.cardSignup__top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+/* BUTTONS */
+.cardSignup__buttons {
+  margin: 10px 0;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.cardSignup__btn {
+  background: #7dc7f9;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* SUN */
+.cardSignup__sun {
+  margin: 15px 0;
+}
+
+.sunSignup-icon {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+/* TEXT */
+.cardSignup__time {
+  margin: 10px 0;
+}
+
+.cardSignup__temp {
+  margin: 10px 0;
+}
+
+/* ACTIONS */
+.cardSignup__actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ICONS */
+.iconSignup {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.iconSignup:hover {
+  transform: scale(1.2);
+}
+
+.heartSignup-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.deleteSignup-icon {
+  width: 22px;
+  height: 22px;
+}
+
+/* SEE MORE */
+.see-moreSignup {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.see-moreSignup:hover {
+  opacity: 0.8;
+}

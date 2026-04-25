@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import Header from "./components/Header/Header";
 import Home from "./pages/Home";
@@ -8,7 +8,7 @@ function App() {
   const [userName, setUserName] = useState("");
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Header userName={userName} setUserName={setUserName} />
 
       <Routes>
@@ -18,7 +18,7 @@ function App() {
           element={<SignupPage setUserName={setUserName} />}
         />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
