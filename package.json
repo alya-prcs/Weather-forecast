@@ -6,11 +6,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-  "build": "vite build",
-  "predeploy": "npm run build",
-  "deploy": "gh-pages -d dist",
-  "lint": "eslint .",
-  "preview": "vite preview"
+    "build": "vite build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
+    "lint": "eslint .",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -24,6 +24,7 @@
     "react-router-dom": "^7.14.1",
     "react-spinners": "^0.17.0",
     "react-toastify": "^11.0.5",
+    "recharts": "^3.8.1",
     "styled-components": "^6.3.12",
     "swiper": "^12.1.3"
   },

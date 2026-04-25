@@ -3,7 +3,7 @@ import WeatherCard from "../WeatherCardSignup/WeatherCardSignup";
 import WeatherDetails from "../WeatherDetails/WeatherDetails";
 import { getWeather } from "../../services/weatherApi";
 
-const WeatherList = ({ city }) => {
+const WeatherList = ({ city, onShowForecast }) => {
   const [cards, setCards] = useState([]);
   const [favorites, setFavorites] = useState([]);
   const [openDetailsId, setOpenDetailsId] = useState(null);
@@ -28,6 +28,7 @@ const WeatherList = ({ city }) => {
         city: data.city.name,
         country: data.city.country,
         ...item,
+        forecast: data.list, // додаємо масив прогнозу
       };
 
       setCards((prev) => {
@@ -70,10 +71,12 @@ const WeatherList = ({ city }) => {
           <WeatherCard
             key={item.id}
             item={item}
+            forecast={item.forecast} // передаємо масив прогнозу
             onDelete={deleteCard}
             onFavorite={toggleFavorite}
             isFavorite={favorites.some((el) => el.id === item.id)}
             onShowDetails={() => toggleDetails(item.id)}
+            onShowForecast={onShowForecast} // головне: передаємо колбек у SignupPage
           />
         )
       )}

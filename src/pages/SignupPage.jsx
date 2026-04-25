@@ -10,6 +10,7 @@ import HourlyForecast from "../components/HourlyForecast/HourlyForecast";
 
 function SignupPage() {
   const [city, setCity] = useState("");
+  const [selectedForecast, setSelectedForecast] = useState(null); // стан для графіка
 
   const handleSearch = (cityName) => {
     setCity(cityName);
@@ -17,13 +18,17 @@ function SignupPage() {
 
   return (
     <>
-
       <SearchBar onSearch={handleSearch} />
-      <WeatherListSignup city={city} />
-  <HourlyForecast />
-      <NewsSection/>
-      <NatureSlider/>
-      <Footer/>
+
+      {/* передаємо колбек у список карток */}
+      <WeatherListSignup city={city} onShowForecast={setSelectedForecast} />
+
+      {/* секція графіка */}
+      {selectedForecast && <HourlyForecast forecast={selectedForecast} />}
+
+      <NewsSection />
+      <NatureSlider />
+      <Footer />
     </>
   );
 }

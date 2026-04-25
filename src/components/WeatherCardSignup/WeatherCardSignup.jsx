@@ -3,7 +3,7 @@ import heartIcon from "../../assets/icons/heart.png";
 import sunIcon from "../../assets/icons/sun.png";
 import deleteIcon from "../../assets/icons/delete.png";
 
-const WeatherCard = ({ item, onDelete, onFavorite, isFavorite }) => {
+const WeatherCard = ({ item, forecast, onDelete, onFavorite, isFavorite, onShowForecast }) => {
   const date = new Date(item.dt_txt);
 
   return (
@@ -16,7 +16,12 @@ const WeatherCard = ({ item, onDelete, onFavorite, isFavorite }) => {
       <h2 className="cardSignup__time">{date.getHours()}:00</h2>
 
       <div className="cardSignup__buttons">
-        <button className="cardSignup__btn">Hourly forecast</button>
+        <button
+          className="cardSignup__btn"
+          onClick={() => onShowForecast(forecast)} // тепер викликає колбек у SignupPage
+        >
+          Hourly forecast
+        </button>
         <button className="cardSignup__btn">Weekly forecast</button>
       </div>
 
@@ -29,9 +34,7 @@ const WeatherCard = ({ item, onDelete, onFavorite, isFavorite }) => {
         <img src={sunIcon} alt="sun" className="sunSignup-icon" />
       </div>
 
-      <h1 className="cardSignup__temp">
-        {Math.round(item.main.temp)}°C
-      </h1>
+      <h1 className="cardSignup__temp">{Math.round(item.main.temp)}°C</h1>
 
       <div className="cardSignup__actions">
         <img
