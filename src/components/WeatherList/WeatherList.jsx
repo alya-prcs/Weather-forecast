@@ -2,49 +2,61 @@ import { useState, useEffect } from "react";
 import WeatherCard from "../WeatherCard/WeatherCard";
 import { getWeather } from "../../services/weatherApi";
 
-
 const WeatherList = ({ city }) => {
   const [cards, setCards] = useState([]);
   const [favorites, setFavorites] = useState([]);
 
+  // 📌 при завантаженні сторінки відновлюємо картки з localStorage
   useEffect(() => {
-  if (!city) return;
+    const savedCards = localStorage.getItem("weatherCards");
+    if (savedCards) {
+      setCards(JSON.parse(savedCards));
+    }
+  }, []);
 
-  const fetchWeather = async () => {
-  const data = await getWeather(city);
+  // 📌 при зміні карток зберігаємо їх у localStorage
+  useEffect(() => {
+    localStorage.setItem("weatherCards", JSON.stringify(cards));
+  }, [cards]);
 
-  if (!data) {
-    alert("City not found ❌");
-    return;
-  }
+  useEffect(() => {
+    if (!city) return;
 
-  if (!data.list) {
-    console.log("No weather data");
-    return;
-  }
+    const fetchWeather = async () => {
+      const data = await getWeather(city);
 
-  const item = data.list[0];
+      if (!data) {
+        alert("City not found ❌");
+        return;
+      }
 
-  const newCard = {
-    id: Date.now(),
-    city: data.city.name,
-    country: data.city.country,
-    ...item,
-  };
+      if (!data.list) {
+        console.log("No weather data");
+        return;
+      }
 
-  setCards((prev) => {
-    const exists = prev.find(
-      (c) => c.city.toLowerCase() === data.city.name.toLowerCase()
-    );
+      const item = data.list[0];
 
-    if (exists) return prev;
+      const newCard = {
+        id: Date.now(),
+        city: data.city.name,
+        country: data.city.country,
+        ...item,
+      };
 
-    return [...prev, newCard];
-  });
-};
+      setCards((prev) => {
+        const exists = prev.find(
+          (c) => c.city.toLowerCase() === data.city.name.toLowerCase()
+        );
 
-  fetchWeather();
-}, [city]);
+        if (exists) return prev;
+
+        return [...prev, newCard];
+      });
+    };
+
+    fetchWeather();
+  }, [city]);
 
   // 🗑 delete
   const deleteCard = (id) => {

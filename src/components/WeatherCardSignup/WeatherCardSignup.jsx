@@ -3,7 +3,16 @@ import heartIcon from "../../assets/icons/heart.png";
 import sunIcon from "../../assets/icons/sun.png";
 import deleteIcon from "../../assets/icons/delete.png";
 
-const WeatherCard = ({ item, forecast, onDelete, onFavorite, isFavorite, onShowForecast }) => {
+const WeatherCard = ({
+  item,
+  forecast,
+  onDelete,
+  onFavorite,
+  isFavorite,
+  onShowForecast,
+  onShowDetails,
+  onShowWeekly, // ✅ тепер працює правильно
+}) => {
   const date = new Date(item.dt_txt);
 
   return (
@@ -13,16 +22,23 @@ const WeatherCard = ({ item, forecast, onDelete, onFavorite, isFavorite, onShowF
         <span>{item.country}</span>
       </div>
 
-      <h2 className="cardSignup__time">{date.getHours()}:00</h2>
+      <h2 className="cardSignup__time">
+        {date.getHours().toString().padStart(2, "0")}:00
+      </h2>
 
       <div className="cardSignup__buttons">
         <button
           className="cardSignup__btn"
-          onClick={() => onShowForecast(forecast)} // тепер викликає колбек у SignupPage
+          onClick={() => onShowForecast(forecast)}
         >
           Hourly forecast
         </button>
-        <button className="cardSignup__btn">Weekly forecast</button>
+        <button
+          className="cardSignup__btn"
+          onClick={onShowWeekly} // ✅ викликаємо без аргументів
+        >
+          Weekly forecast
+        </button>
       </div>
 
       <p className="cardSignup__date">
@@ -45,7 +61,9 @@ const WeatherCard = ({ item, forecast, onDelete, onFavorite, isFavorite, onShowF
           style={{ opacity: isFavorite ? 1 : 0.5 }}
         />
 
-        <button className="see-moreSignup">See more</button>
+        <button className="see-moreSignup" onClick={onShowDetails}>
+          See more
+        </button>
 
         <img
           src={deleteIcon}

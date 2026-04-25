@@ -1,0 +1,151 @@
+/* WeeklyForecast.css - Табличний варіант як на фото */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal {
+  background: #fff;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  max-width: 900px;
+  width: 90%;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #ff4d4d;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  transition: background 0.2s ease;
+}
+
+.modal-close:hover {
+  background: #e60000;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+
+
+.weekly-forecast {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 28px;
+  box-sizing: border-box;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+}
+
+.weekly-forecast h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+  margin: 0 0 20px 0;
+  letter-spacing: -0.3px;
+}
+
+.forecast-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.forecast-table th {
+  text-align: left;
+  padding: 12px 8px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.forecast-table td {
+  padding: 14px 8px;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.forecast-table tr:last-child td {
+  border-bottom: none;
+}
+
+.weather-icons {
+  display: flex;
+  gap: 6px;
+  font-size: 1.1rem;
+}
+
+.temp-range {
+  font-weight: 600;
+  color: white;
+}
+
+/* Опис погоди внизу */
+.weather-descriptions {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.weather-descriptions span {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.7rem;
+  text-transform: capitalize;
+  letter-spacing: 0.3px;
+}
+
+/* Responsive */
+@media (max-width: 550px) {
+  .weekly-forecast {
+    padding: 16px 12px;
+  }
+  
+  .weekly-forecast h2 {
+    font-size: 1.2rem;
+  }
+  
+  .weather-icons {
+    gap: 3px;
+    font-size: 0.9rem;
+  }
+  
+  .temp-range {
+    font-size: 0.8rem;
+  }
+  
+  .weather-descriptions span {
+    font-size: 0.6rem;
+  }
+}
